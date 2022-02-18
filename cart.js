@@ -35,8 +35,10 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const summedPrice = cart.reduce(function(accOjb, crrObj){
+    return {price: accOjb.price + crrObj.price};
+});
+//console.log(summedPrice);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,7 +56,12 @@ const cart = [
 */
 
 //CODE HERE
-
+let calcFinalPrice = (cartTotal, couponValue, tax) => {
+    let taxedTotal = cartTotal * (tax + 1);
+    //console.log(taxedTotal);
+    return taxedTotal - couponValue;
+};
+//console.log(calcFinalPrice(10, 3, .05));
 
 
 //////////////////PROBLEM 3////////////////////
@@ -79,7 +86,10 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
-
+    purchasedFood: array of objects, -> need to know what food the customer purchased .
+    tax: number, -> need to calculate the taxed price.
+    chip: number, -> chip %.
+    couponValue: number -> subtract discount from the taxed total.
 */
 
 /*
@@ -88,3 +98,24 @@ const cart = [
 */
 
 //CODE HERE
+let customer = {
+    purchasedFood: [
+        {
+            name: 'pizza1',
+            price: 10
+        },
+        {
+            name: 'pizza2',
+            price: 10
+        },
+        {
+            name: 'drink',
+            price: 5
+        }
+    ],
+    tax: 0.05,
+    chip: 0.15,
+    couponValue: 10,
+}
+
+console.log(customer);
