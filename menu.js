@@ -31,8 +31,15 @@
 */
 
 //CODE HERE
-
-
+let pizza = {
+    name: 'Pepperoni Mega Pizza',
+    price: 2.00,
+    category: 'Pizza',
+    popularity: 1,
+    rating: 5,
+    tags: ['popular', 'family', 'family-size', 'the biggest pizza'],
+};
+//console.log(pizza);
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -43,7 +50,7 @@
 */
 
 //CODE HERE
-
+//console.log(`The overall rank of this pizza is ${pizza.popularity}!`);
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +60,7 @@
 */
 
 //CODE HERE
-
+//console.log(pizza.tags[1]);
 
 /*
     Third, destructure the price off of the
@@ -63,7 +70,9 @@
 */
 
 //CODE HERE
-
+let {price} = pizza;
+price = 1.00;
+//console.log(price);
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +82,8 @@
 */
 
 //CODE HERE
-
+let {category} = pizza;
+//console.log(category);
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,8 +98,49 @@
 */
 
 //CODE HERE
-
-
+let foodArr = [
+    {
+        name: 'Pepperoni Mega Pizza',
+        price: 2.00,
+        category: 'Pizza',
+        popularity: 1,
+        rating: 5,
+        tags: ['popular', 'family', 'family-size', 'the biggest pizza'],
+    },
+    {
+        name: 'Custom Mega Pizza',
+        price: 5.00,
+        category: 'Pizza',
+        popularity: 3,
+        rating: 4.5,
+        tags: ['popular', 'family', 'family-size', 'the biggest pizza', 'customizable'],
+    },
+    {
+        name: 'Pepperoni Pizza',
+        price: 1.00,
+        category: 'Pizza',
+        popularity: 5,
+        rating: 4,
+        tags: ['family', 'traditional pizza'],
+    },
+    {
+        name: 'Custom Pizza',
+        price: 3.00,
+        category: 'Pizza',
+        popularity: 2,
+        rating: 4.5,
+        tags: ['popular', 'family', 'customizable'],
+    },
+    {
+        name: 'Custom Mini Pizza',
+        price: 2.00,
+        category: 'Pizza',
+        popularity: 4,
+        rating: 4.5,
+        tags: ['popular', 'lunch-size', 'customizable'],
+    }
+]
+//console.log(foodArr);
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -105,9 +156,8 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
-
+const filteredFood = foodArr.filter(pizza => pizza.tags.includes('customizable'))
+//console.log(filteredFood);
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -149,7 +199,16 @@
 */
 
 //CODE HERE
-
+let filterByProperty = (property, num, type) => {
+    let filteredArray = foodArr.filter(pizza => {
+        if(type === 'above'){
+            return pizza[property] > num;
+        }else{
+            return pizza[property] < num;
+        }
+    });
+    return filteredArray;
+};
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +218,4 @@
 */
 
 //CODE HERE
+console.log(filterByProperty('price', 4, 'below'));
